@@ -14,8 +14,8 @@ RTSPBrute es una herramienta escrita en Go para realizar ataques de fuerza bruta
 ## Instalación
 Clona el repositorio y compila el binario:
 ```bash
-git clone https://github.com/vpanal/rtspbrute.git
-cd rtspbrute
+git clone https://github.com/vpanal/gortspbrute.git
+cd gortspbrute
 go build main.go -o gortspbrute
 ```
 
