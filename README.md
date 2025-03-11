@@ -1,4 +1,4 @@
-# RTSPBrute - Bruteforce de rutas RTSP
+# GoRTSPBrute - Bruteforce de rutas RTSP
 
 RTSPBrute es una herramienta escrita en Go para realizar ataques de fuerza bruta sobre rutas RTSP en cámaras IP y servidores de streaming. Utiliza el método **DESCRIBE** para verificar si realmente existe un stream en la ruta probada, evitando falsos positivos.
 
@@ -16,13 +16,13 @@ Clona el repositorio y compila el binario:
 ```bash
 git clone https://github.com/vpanal/rtspbrute.git
 cd rtspbrute
-go build main.go
+go build main.go -o gortspbrute
 ```
 
 ## Uso
 Ejecuta el binario indicando la IP:PUERTO del servidor RTSP y la wordlist de rutas:
 ```bash
-./rtspbrute 192.168.1.54:8554 wordlist.txt
+./gortspbrute 192.168.1.54:8554 wordlist.txt
 ```
 
 Ejemplo de wordlist:
