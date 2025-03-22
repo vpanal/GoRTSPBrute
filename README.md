@@ -1,31 +1,31 @@
-# GoRTSPBrute - Bruteforce de rutas RTSP
+# GoRTSPBrute - RTSP Path Bruteforce
 
-RTSPBrute es una herramienta escrita en Go para realizar ataques de fuerza bruta sobre rutas RTSP en cámaras IP y servidores de streaming. Utiliza el método **DESCRIBE** para verificar si realmente existe un stream en la ruta probada, evitando falsos positivos.
+RTSPBrute is a tool written in Go to perform brute force attacks on RTSP paths in IP cameras and streaming servers. It uses the **DESCRIBE** method to verify if a stream actually exists on the tested path, avoiding false positives.
 
-## Características
-✅ Escaneo rápido y multihilo.  
-✅ Utiliza el método **DESCRIBE** en lugar de **OPTIONS**, mejorando la precisión.  
-✅ Filtra rutas falsas verificando que la respuesta contenga información de stream.  
-✅ Compatible con servidores RTSP estándar.
+## Features
+✅ Fast and multithreaded scanning.  
+✅ Uses the **DESCRIBE** method instead of **OPTIONS**, improving accuracy.  
+✅ Filters out false paths by verifying that the response contains stream information.  
+✅ Compatible with standard RTSP servers.
 
-## Requisitos
-- Go 1.18 o superior
+## Requirements
+- Go 1.18 or higher
 
-## Instalación
-Clona el repositorio y compila el binario:
+## Installation
+Clone the repository and compile the binary:
 ```bash
 git clone https://github.com/vpanal/gortspbrute.git
 cd gortspbrute
 go build main.go -o gortspbrute
 ```
 
-## Uso
-Ejecuta el binario indicando la IP:PUERTO del servidor RTSP y la wordlist de rutas:
+## Usage
+Run the binary specifying the IP:PORT of the RTSP server and the path wordlist:
 ```bash
 ./gortspbrute 192.168.1.54:8554 wordlist.txt
 ```
 
-Ejemplo de wordlist:
+Example wordlist:
 ```
 stream
 live.sdp
@@ -34,18 +34,18 @@ cam1
 axis-media/media.amp
 ```
 
-## Ejemplo de salida
+## Example Output
 ```bash
-[+] Stream válido encontrado: rtsp://192.168.1.54:8554/live.sdp
-[-] Ruta inválida o sin stream: rtsp://192.168.1.54:8554/test
-[+] Stream válido encontrado: rtsp://192.168.1.54:8554/axis-media/media.amp
-Bruteforce finalizado.
+[+] Valid stream found: rtsp://192.168.1.54:8554/live.sdp
+[-] Invalid path or no stream: rtsp://192.168.1.54:8554/test
+[+] Valid stream found: rtsp://192.168.1.54:8554/axis-media/media.amp
+Bruteforce completed.
 ```
 
-## Notas
-- Si una ruta devuelve **401 Unauthorized**, significa que es válida pero requiere autenticación.
-- Si VLC no puede abrir la URL, es probable que el stream no sea accesible.
+## Notes
+- If a path returns **401 Unauthorized**, it means it is valid but requires authentication.
+- If VLC cannot open the URL, the stream is likely not accessible.
 
-## Autor
-Creado por vpanal para fines educativos y pruebas de seguridad en entornos controlados. No me hago responsable del uso indebido.
+## Author
+Created by vpanal for educational purposes and security testing in controlled environments. I am not responsible for misuse.
 
